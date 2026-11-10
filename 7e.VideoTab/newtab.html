@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Tab</title>
+  <link rel="stylesheet" href="newtab.css" />
+</head>
+<body>
+  <main class="scene">
+    <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="assets/background.mp4" type="video/mp4" />
+    </video>
+    <div class="video-shade"></div>
+    <div class="grain"></div>
+
+    <header class="topbar">
+      <div class="wordmark"><span>7e</span><b>/</b> NEW TAB</div>
+      <div class="date-block">
+        <span id="dayName">—</span>
+        <strong id="dateText">—</strong>
+      </div>
+    </header>
+
+    <section class="landing-content">
+      <p class="overline">KEEP MOVING / KEEP WATCHING</p>
+      <h1 class="hero-carousel" aria-live="polite"><span id="heroTop">What are you</span><br /><em id="heroBottom">looking for?</em></h1>
+      <form id="searchForm" class="search-box">
+        <label for="searchInput" class="sr-only">Search the web</label>
+        <input id="searchInput" type="search" placeholder="Search the web" autocomplete="off" spellcheck="false" autofocus />
+        <button type="submit" aria-label="Search">↗</button>
+      </form>
+      <p class="hint">Press <kbd>Enter</kbd> to search the web</p>
+    </section>
+
+    <aside class="recent-panel glass-panel" aria-label="Quick links">
+      <div class="recent-heading"><span>QUICK LINKS</span><i>OPEN</i></div>
+      <div id="quickLinks" class="recent-list"></div>
+    </aside>
+
+    <footer class="bottom-bar">
+      <span>BACKGROUND / F1® THE MOVIE 4K EDIT</span>
+      <span class="sound-button" aria-label="Background video is muted">MOTION ON <i></i></span>
+    </footer>
+  </main>
+  <script src="newtab.js"></script>
+</body>
+</html>
