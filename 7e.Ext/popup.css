@@ -1,0 +1,192 @@
+/* =====================================================
+   7e.Ext — Popup Styles
+   ===================================================== */
+
+/* --- Tokens --- */
+:root {
+  --bg:        #0f0f13;
+  --surface:   #1a1a22;
+  --border:    #2a2a38;
+  --fg:        #e8e8f0;
+  --muted:     #7a7a98;
+  --accent:    #7c6eff;
+  --accent-hi: #a99dff;
+  --btn-bg:    #7c6eff;
+  --btn-fg:    #fff;
+  --btn-hover: #9b8fff;
+  --radius:    10px;
+  --radius-sm: 6px;
+  color-scheme: dark;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+code { font-family: 'Courier New', monospace; font-size: 0.78em; }
+
+/* --- Shell --- */
+body {
+  width: 320px;
+  min-height: 120px;
+  max-height: 540px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+}
+
+/* --- Header --- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.logo-mark { color: var(--fg); }
+.logo-dot  { color: var(--accent); }
+.logo-ext  { color: var(--accent-hi); }
+
+.tagline {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+/* --- Main scroll area --- */
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 10px 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+main::-webkit-scrollbar { width: 4px; }
+main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* --- Site list --- */
+.site-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* --- Site card --- */
+.site-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.15s, background 0.15s;
+}
+.site-card:hover {
+  border-color: var(--accent);
+  background: #1f1f2e;
+}
+
+/* Favicon container */
+.site-favicon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.site-favicon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.site-favicon .fallback-letter {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-hi);
+  text-transform: uppercase;
+}
+
+/* Text block */
+.site-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.site-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.site-desc {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Open button */
+.open-btn {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.1s;
+}
+.open-btn:hover  { background: var(--btn-hover); }
+.open-btn:active { transform: scale(0.96); }
+
+/* --- Empty state --- */
+.empty-state {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.empty-state .hint {
+  margin-top: 6px;
+  font-size: 11px;
+}
+.empty-state code {
+  color: var(--accent-hi);
+}
+
+/* --- Footer --- */
+footer {
+  padding: 8px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+  font-size: 10.5px;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+footer code { color: var(--accent-hi); }
