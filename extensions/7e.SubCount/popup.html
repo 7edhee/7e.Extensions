@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7e.SubCount</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Ambient background glow blobs for glassmorphism -->
+  <div class="ambient-glow glow-red"></div>
+  <div class="ambient-glow glow-cyan"></div>
+
+  <div class="glass-frame">
+    <!-- Brutalist Header -->
+    <header class="brutal-header">
+      <div class="brand">
+        <span class="status-indicator"></span>
+        <span class="brand-title">7e.SUBCOUNT</span>
+      </div>
+      <span class="badge-zero-api">ZERO_API // PUBLIC</span>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="input-group">
+        <input type="text" id="query-input" placeholder="@handle, ChannelID, or URL..." spellcheck="false" autocomplete="off">
+        <button id="track-btn" class="brutal-btn accent-btn">TRACK</button>
+      </div>
+    </div>
+
+    <!-- System Status Bar -->
+    <div id="status-message" class="status-banner">READY // AWAITING TARGET</div>
+
+    <!-- Channel Live Display Card -->
+    <div id="channel-card" class="brutal-box glass-card live-card hidden">
+      <div class="card-top">
+        <div class="avatar-wrap">
+          <img id="channel-avatar" src="" alt="Avatar" class="brutal-avatar">
+        </div>
+        <div class="channel-meta">
+          <h2 id="channel-title" class="channel-name">CHANNEL</h2>
+          <span id="channel-handle" class="channel-tag">@HANDLE</span>
+        </div>
+      </div>
+
+      <div class="sub-monitor">
+        <div class="monitor-header">
+          <span class="live-pill"><span class="blink">●</span> LIVE SCRAPE FEED</span>
+          <span class="format-tag">TARGET: SUBS</span>
+        </div>
+        <div id="sub-count" class="counter-display">---</div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <span class="cell-label">TOTAL UPLOADS</span>
+          <span id="video-count" class="cell-val">---</span>
+        </div>
+        <div class="stat-cell">
+          <span class="cell-label">STATUS</span>
+          <span id="sync-status" class="cell-val">ACTIVE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
