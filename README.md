@@ -13,6 +13,7 @@ A collection of small, self-contained Chrome extensions built with Manifest V3. 
 | [`7e.Ext`](extensions/7e.Ext/) | Quick access to saved websites from the browser toolbar | `1.0.0` | None declared |
 | [`7e.Ping`](extensions/7e.Ping/) | Live latency checks and on-demand download-speed estimates | `1.1.0` | None declared |
 | [`7e.VideoTab`](extensions/7e.VideoTab/) | A cinematic video-backed search landing page for new tabs | `1.0.0` | None declared |
+| [`7e.YTMoney`](extensions/7e.YTMoney/) | Used to Estimating YouTube earnings from views. | `1.0.0` | None declared |
 
 For extension-specific behavior and customization notes, see the README inside [`7e.Ping`](extensions/7e.Ping/) and [`7e.VideoTab`](extensions/7e.VideoTab/). `7e.Ext` is documented by its manifest and in-extension interface.
 
