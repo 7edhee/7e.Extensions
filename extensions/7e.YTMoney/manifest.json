@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "7e.YTMoney — YouTube Earnings Estimator",
+  "version": "1.0.0",
+  "description": "Estimate YouTube earnings from views and RPM assumptions.",
+  "action": {
+    "default_title": "7e.YTMoney",
+    "default_popup": "popup.html"
+  },
+  "permissions": []
+}

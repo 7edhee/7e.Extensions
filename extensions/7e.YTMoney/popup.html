@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7e.YTMoney</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span>7e</span><b>.YTMONEY</b></div>
+      <div class="status"><i></i> ESTIMATOR</div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">YOUTUBE REVENUE / QUICK READ</p>
+      <h1>Turn views<br><em>into numbers.</em></h1>
+      <p class="intro">A simple estimate based on your views and assumed RPM.</p>
+    </section>
+
+    <form id="calculator" class="calculator">
+      <div class="field full">
+        <label for="views">TOTAL VIEWS</label>
+        <input id="views" type="number" min="0" step="1" value="100000" placeholder="100000" required />
+      </div>
+
+      <div class="field">
+        <label for="contentType">CONTENT TYPE</label>
+        <select id="contentType">
+          <option value="long">Long-form video</option>
+          <option value="shorts">YouTube Shorts</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="currency">CURRENCY</label>
+        <select id="currency">
+          <option value="USD">USD — $</option>
+          <option value="INR">INR — ₹</option>
+          <option value="EUR">EUR — €</option>
+          <option value="GBP">GBP — £</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label for="rpm">ESTIMATED RPM <span id="rpmUnit">USD per 1,000 views</span></label>
+        <div class="input-with-prefix"><span id="currencyPrefix">$</span><input id="rpm" type="number" min="0" step="0.01" value="4.00" required /></div>
+        <div class="range-row"><input id="rpmRange" type="range" min="0" max="50" step="0.01" value="4" /><span id="rpmValue">$4.00</span></div>
+      </div>
+
+      <button class="calculate" type="submit"><span>CALCULATE ESTIMATE</span><b>↗</b></button>
+    </form>
+
+    <section class="result" aria-live="polite">
+      <div class="result-label">ESTIMATED REVENUE</div>
+      <div class="result-value" id="resultValue">$400.00</div>
+      <div class="result-meta"><span id="resultBreakdown">100,000 views × $4.00 RPM</span><span id="resultType">LONG-FORM</span></div>
+    </section>
+
+    <section class="details">
+      <div><span class="detail-label">PER 1K VIEWS</span><strong id="perThousand">$4.00</strong></div>
+      <div><span class="detail-label">PER 1M VIEWS</span><strong id="perMillion">$4,000.00</strong></div>
+    </section>
+
+    <footer class="footer">ESTIMATE ONLY · ACTUAL REVENUE VARIES BY AUDIENCE, ADS, REGION &amp; ELIGIBILITY</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
