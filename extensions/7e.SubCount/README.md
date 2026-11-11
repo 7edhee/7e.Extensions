@@ -1,29 +1,35 @@
-# 7e.SubCount
+7e.SubCount
 
-> **Brutalist-Glassy Live YouTube Subscriber Tracker for Google Chrome.**
+A Chrome extension for live YouTube subscriber tracking and channel stat
+monitoring without requiring an API key. The popup combines brutalist
+typography, hard offset shadows, neon red/yellow accents, translucent glass
+panels, and an ambient backlight glow.
 
-`7e.SubCount` is a lightweight, zero-configuration Chrome Extension (Manifest V3) designed to track YouTube channel statistics in real-time. It requires **no Google Cloud API keys**, functioning straight out of the box with a high-contrast Neo-Brutalist + Glassmorphic interface.
+Install in Chrome
 
----
+1.  Extract the 7e.SubCount.zip file.
+2.  Open chrome://extensions in Chrome.
+3.  Enable Developer mode in the top-right corner.
+4.  Click Load unpacked.
+5.  Select the extracted 7e-subcount folder containing manifest.json.
+6.  Pin 7e.SubCount from Chrome's Extensions menu for quick access.
 
-## ⚡ Features
+Use
 
-- **Zero-API Required**: No need to configure Google Cloud Console, generate API keys, or deal with daily quota limits.
-- **Brutalist-Glass Theme**: Frosted glass transparency, ambient neon glow, stark high-contrast borders, and hard tactile drop shadows.
-- **Universal Channel Lookup**: Supports `@handles` (e.g. `@MrBeast`), Channel IDs (e.g. `UCX6OQ3DkcsbYNE6H8uQQuVA`), or pasted YouTube URLs.
-- **Live Stream Metrics**: Auto-refreshes channel metrics at periodic intervals.
-- **Local Persistence**: Automatically caches and reloads the last queried channel.
+  - Enter any YouTube @handle (e.g., @MrBeast), Channel ID (UC...), or direct
+    channel URL.
+  - Click TRACK or hit Enter to fetch the channel data.
+  - Subscribers and upload counts automatically refresh every 10 seconds while
+    the popup is open.
+  - The extension remembers your last queried channel and resumes tracking
+    automatically on next open.
 
----
+Notes
 
-## 📁 Project Structure
-
-```text
-7e-subcount/
-├── manifest.json      # Chrome Manifest V3 configuration
-├── popup.html         # Brutalist glass UI markup
-├── popup.css          # Styling & animations
-├── popup.js           # Live data scraper & parser logic
-├── icon.png           # Extension icon
-├── README.md          # Documentation
-└── LICENSE.md         # Open-source license
+  - Operates client-side with zero API keys or Google Cloud configurations by
+    reading public YouTube channel metadata directly.
+  - Counts for large channels follow YouTube's public abbreviated format (e.g.,
+    100K, 2.4M, 318M).
+  - The extension only requests host permissions for youtube.com to stream
+    public subscriber stats; it does not collect user data, cookies, or browsing
+    history.
