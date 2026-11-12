@@ -10,6 +10,7 @@ Thumbs.db
 
 # Local archives and generated packages
 *.zip
+!extensions/**/*.zip
 *.crx
 *.xpi
 

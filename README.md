@@ -62,7 +62,7 @@ Each extension is intentionally self-contained under `extensions/`. Keep extensi
 
 ## Live file catalog
 
-The root [`index.html`](index.html) loads the current `extensions/` tree from GitHub and renders every published file with a download button. Upload a file anywhere inside an extension directory and it will appear in the live catalog after GitHub updates the `main` branch; no manual edit to `index.html` is required.
+The root [`index.html`](index.html) loads the current `extensions/` tree from GitHub and renders only published `.zip` packages with a download button. Upload a `.zip` package anywhere inside an extension directory and it will appear in the live catalog after GitHub updates the `main` branch; no manual edit to `index.html` is required.
 
 ## Privacy and permissions
 

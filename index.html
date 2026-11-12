@@ -50,10 +50,10 @@
 
     <section class="file-browser" aria-labelledby="file-browser-title">
       <div class="file-browser-head">
-        <div><p class="eyebrow">LIVE REPOSITORY INDEX</p><h2 id="file-browser-title">Files in extensions/</h2></div>
+        <div><p class="eyebrow">LIVE PACKAGE INDEX</p><h2 id="file-browser-title">ZIP packages in extensions/</h2></div>
         <span id="file-status" class="file-status">SYNCING WITH GITHUB...</span>
       </div>
-      <div id="file-catalog" class="file-catalog" aria-live="polite"><div class="file-message">Loading the latest files from GitHub...</div></div>
+      <div id="file-catalog" class="file-catalog" aria-live="polite"><div class="file-message">Loading the latest ZIP packages from GitHub...</div></div>
     </section>
     <section class="setup"><div><h3>INSTALL IN CHROME</h3><p>Choose an extension folder, open <code>chrome://extensions</code>, enable <strong>Developer mode</strong>, then choose <strong>Load unpacked</strong>.</p></div><div><h3>EDIT ANYTIME</h3><p>Each extension is delivered as editable source code. Change links, colors, text, and behavior directly inside its folder, then reload it from Chrome’s extensions page.</p></div></section>
     <footer class="footer"><span>7e / PERSONAL EXTENSION BOARD</span><span>BUILT FOR YOUR BROWSER</span></footer>
@@ -76,7 +76,7 @@
       const safeText = (value) => String(value).replace(/[&<>"']/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
 
       const renderFiles = (tree) => {
-        const files = tree.filter((entry) => entry.type === "blob" && entry.path.startsWith("extensions/"));
+        const files = tree.filter((entry) => entry.type === "blob" && entry.path.startsWith("extensions/") && entry.path.toLowerCase().endsWith(".zip"));
         const groups = new Map();
         files.forEach((file) => {
           const parts = file.path.split("/");
@@ -85,7 +85,7 @@
           groups.get(group).push(file);
         });
         if (!files.length) {
-          catalog.innerHTML = '<div class="file-message">No files are currently published under extensions/.</div>';
+          catalog.innerHTML = '<div class="file-message">No ZIP packages are currently published under extensions/. Upload a .zip file inside extensions/ to make it appear here.</div>';
           return;
         }
         catalog.innerHTML = [...groups.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([group, entries]) => `
@@ -97,7 +97,7 @@
               return `<div class="file-row"><div class="file-name" title="${safeText(relative)}">${safeText(relative)}<span class="file-size">${formatBytes(file.size)}</span></div><a class="file-download" href="${downloadUrl}" download target="_blank" rel="noopener">DOWNLOAD</a></div>`;
             }).join("")}
           </section>`).join("");
-        status.textContent = `${files.length} FILES / LIVE FROM GITHUB`;
+        status.textContent = `${files.length} ZIP PACKAGES / LIVE FROM GITHUB`;
       };
 
       fetch(API_URL, { headers: { Accept: "application/vnd.github+json" } })
@@ -105,7 +105,7 @@
         .then((data) => { if (data.truncated) status.textContent = "PARTIAL INDEX / TREE TOO LARGE"; renderFiles(data.tree || []); })
         .catch((error) => {
           status.textContent = "SYNC FAILED";
-          catalog.innerHTML = `<div class="file-message">The live file index is unavailable right now (${safeText(error.message)}). Use the GitHub repository to browse and download files.</div>`;
+          catalog.innerHTML = `<div class="file-message">The live ZIP package index is unavailable right now (${safeText(error.message)}). Use the GitHub repository to browse and download files.</div>`;
         });
     })();
   </script>
