@@ -60,9 +60,9 @@ Chrome extensions in this repository are loaded directly from their source direc
 
 Each extension is intentionally self-contained under `extensions/`. Keep extension assets and metadata inside the corresponding directory so that it remains independently loadable.
 
-## Live file catalog
+## Live package downloads
 
-The root [`index.html`](index.html) loads the current `extensions/` tree from GitHub and renders only published `.zip` packages with a download button. Upload a `.zip` package anywhere inside an extension directory and it will appear in the live catalog after GitHub updates the `main` branch; no manual edit to `index.html` is required.
+The root [`index.html`](index.html) checks the current `extensions/` tree from GitHub and adds a **Download ZIP** button beside each extension card when a package is available. Upload another `.zip` package inside an extension directory and the matching card will recognize it automatically after GitHub updates the `main` branch.
 
 ## Privacy and permissions
 

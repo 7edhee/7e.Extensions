@@ -15,26 +15,22 @@
     .brand { color:var(--paper); font:12px monospace; letter-spacing:.16em; }.brand strong { display:inline-block; margin-right:8px; padding:6px 8px; color:#0b0d0f; background:var(--acid); font:800 16px Arial; letter-spacing:-.1em; }.edition { color:var(--muted); font:10px monospace; letter-spacing:.12em; }
     .hero { max-width:800px; margin-bottom:64px; }.eyebrow { margin:0 0 17px; color:var(--acid); font:11px monospace; letter-spacing:.2em; }h1 { margin:0; font-size:clamp(50px,9vw,105px); line-height:.84; letter-spacing:-.09em; }h1 em { color:var(--acid); font-style:normal; }.intro { max-width:480px; margin:26px 0 0; color:#b7bab5; font-size:15px; line-height:1.5; }
     .extension-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }.card { position:relative; display:flex; min-height:330px; flex-direction:column; padding:21px; border:1px solid var(--line); background:var(--glass); box-shadow:8px 8px 0 rgba(0,0,0,.28); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); transition:transform .2s ease,background .2s ease; }.card:hover { background:rgba(255,255,255,.13); transform:translate(-3px,-3px); }.card::before { position:absolute; top:0; left:0; width:100%; height:4px; content:""; background:var(--acid); }.card.ping::before { background:var(--orange); }.card.video::before { background:var(--purple); }.number { color:#777b79; font:11px monospace; }.icon { display:grid; width:55px; height:55px; place-items:center; margin:32px 0 23px; color:#0b0d0f; background:var(--acid); font-size:20px; font-weight:900; letter-spacing:-.1em; transform:skew(-8deg); }.ping .icon { background:var(--orange); }.video .icon { color:var(--paper); background:var(--purple); }h2 { margin:0; font-size:26px; letter-spacing:-.06em; }.tag { margin:7px 0 14px; color:var(--acid); font:10px monospace; letter-spacing:.12em; }.ping .tag { color:var(--orange); }.video .tag { color:#db9bff; }.description { margin:0; color:#aeb1ad; font-size:13px; line-height:1.45; }.card-footer { display:flex; gap:8px; margin-top:auto; padding-top:22px; }a.button { display:inline-block; padding:11px 13px; color:#0b0d0f; background:var(--acid); text-decoration:none; font:700 10px monospace; letter-spacing:.05em; }a.button:hover { background:var(--paper); }a.folder { padding:11px 5px; color:var(--muted); font:10px monospace; text-decoration:none; }a.folder:hover { color:var(--paper); }
+
+    .star-cta { position:relative; display:flex; align-items:center; justify-content:space-between; gap:28px; overflow:hidden; margin-top:70px; padding:28px; border:1px solid var(--line); background:linear-gradient(115deg,rgba(216,255,54,.12),rgba(255,255,255,.045)); }
+    .star-cta::after { position:absolute; width:230px; height:230px; right:-70px; top:-115px; content:""; border:1px solid rgba(216,255,54,.3); border-radius:50%; animation:star-orbit 12s linear infinite; }
+    .star-copy { position:relative; z-index:1; }.star-copy h2 { margin:0 0 9px; font-size:clamp(26px,4vw,42px); }.star-copy p { max-width:590px; margin:0; color:#aeb1ad; font-size:13px; line-height:1.55; }
+    .star-badge { position:relative; z-index:1; display:grid; width:84px; height:84px; flex:0 0 auto; place-items:center; color:#0b0d0f; background:var(--acid); box-shadow:8px 8px 0 rgba(0,0,0,.28); transform:rotate(-8deg); animation:star-float 3.8s ease-in-out infinite; }
+    .star-badge::before { content:"★"; font-size:38px; line-height:1; animation:star-spin 8s linear infinite; }
+    .star-link { display:inline-block; margin-top:18px; padding:11px 14px; color:#0b0d0f; background:var(--acid); text-decoration:none; font:700 10px monospace; letter-spacing:.08em; }.star-link:hover { background:var(--paper); }
+    .download-package.is-disabled { color:#777b79; background:#252a26; cursor:not-allowed; pointer-events:none; }
+    @keyframes star-float { 0%,100% { transform:rotate(-8deg) translateY(0); } 50% { transform:rotate(3deg) translateY(-8px); } }
+    @keyframes star-spin { to { transform:rotate(360deg); } }
+    @keyframes star-orbit { to { transform:rotate(360deg); } }
+    @media (max-width:600px) { .star-cta { align-items:flex-start; flex-direction:column; }.star-badge { position:absolute; top:18px; right:18px; width:62px; height:62px; }.star-badge::before { font-size:28px; } }
+    @media (prefers-reduced-motion:reduce) { .star-badge, .star-badge::before, .star-cta::after { animation:none; } }
     .setup { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:70px; padding-top:21px; border-top:1px solid var(--line); }.setup h3 { margin:0 0 11px; color:var(--acid); font:11px monospace; letter-spacing:.15em; }.setup p { margin:0; color:#aeb1ad; font-size:13px; line-height:1.55; }.setup code { padding:3px 6px; color:var(--paper); background:rgba(255,255,255,.1); font-family:monospace; }.footer { display:flex; justify-content:space-between; margin-top:50px; color:#707572; font:10px monospace; letter-spacing:.07em; }
     @media (max-width:800px) { .extension-grid { grid-template-columns:1fr; }.card { min-height:250px; }.setup { grid-template-columns:1fr; }.topbar { margin-bottom:55px; } } @media (max-width:480px) { .page { width:min(100% - 30px,1120px); padding-top:22px; }.edition { display:none; } }
 
-    .file-browser { margin-top:70px; padding-top:21px; border-top:1px solid var(--line); }
-    .file-browser-head { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:18px; }
-    .file-browser-head h2 { margin:0; font-size:clamp(28px,4vw,44px); letter-spacing:-.07em; }
-    .file-browser-head .eyebrow { margin:0 0 10px; }
-    .file-status { color:var(--muted); font:10px monospace; letter-spacing:.08em; text-align:right; }
-    .file-catalog { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .file-group { padding:18px; border:1px solid var(--line); background:rgba(255,255,255,.045); }
-    .file-group h3 { margin:0 0 14px; color:var(--paper); font:700 15px monospace; letter-spacing:.04em; }
-    .file-row { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:11px 0; border-top:1px solid rgba(242,240,233,.12); }
-    .file-row:first-of-type { border-top:0; }
-    .file-name { min-width:0; color:#b7bab5; font:11px monospace; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-    .file-size { display:block; margin-top:4px; color:#707572; font-size:10px; }
-    .file-download { flex:0 0 auto; padding:9px 10px; color:#0b0d0f; background:var(--acid); text-decoration:none; font:700 10px monospace; letter-spacing:.05em; }
-    .file-download:hover { background:var(--paper); }
-    .file-message { grid-column:1/-1; padding:18px; color:var(--muted); border:1px solid var(--line); font:12px monospace; }
-    @media (max-width:900px) { .file-catalog { grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:600px) { .file-browser-head { align-items:flex-start; flex-direction:column; }.file-status { text-align:left; }.file-catalog { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -42,18 +38,20 @@
     <header class="topbar"><div class="brand"><strong>7e</strong> EXTENSION BOARD</div><div class="edition">PERSONAL TOOLS / 2026</div></header>
     <section class="hero"><p class="eyebrow">YOUR BROWSER. YOUR RULES.</p><h1>Small tools.<br><em>Big utility.</em></h1><p class="intro">A personal collection of Chrome extensions built for faster access, clearer network checks, and a more cinematic new-tab experience.</p></section>
     <section class="extension-grid" aria-label="My Chrome extensions">
-      <article class="card launcher"><span class="number">01 / LAUNCHER</span><div class="icon">7e</div><h2>7e.Ext</h2><p class="tag">WEBSITE SHORTCUTS</p><p class="description">Open your favorite websites quickly from a clean Chrome extension popup. Edit the website list whenever you want.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.Ext">OPEN FOLDER</a><a class="folder" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.Ext">README ↗</a></div></article>
-      <article class="card ping"><span class="number">02 / MONITOR</span><div class="icon">↯</div><h2>7e.Ping</h2><p class="tag">LIVE NETWORK CHECK</p><p class="description">Check live latency and run an on-demand download speed test through a brutalist glassmorphism dashboard.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.Ping">OPEN FOLDER</a><a class="folder" href="https://github.com/7edhee/7e.Extensions/blob/main/extensions/7e.Ping/README.md">README ↗</a></div></article>
-      <article class="card video"><span class="number">03 / BRUTALIST PAGE</span><div class="icon">▶</div><h2>7e.VideoTab</h2><p class="tag">CINEMATIC LANDING PAGE</p><p class="description">Turn every new tab into a video-powered search landing page with quick links and a rotating hero carousel.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.VideoTab">OPEN FOLDER</a><a class="folder" href="https://github.com/7edhee/7e.Extensions/blob/main/extensions/7e.VideoTab/README.md">README ↗</a></div></article>
-      <article class="card money"><span class="number">04 / YT MONEY CALC</span><div class="icon">⛁</div><h2>7e.YTMoney</h2><p class="tag">YOUTUBE REVENUE CALCULATOR</p><p class="description">Turn every new tab into a video-powered search landing page with quick links and a rotating hero carousel.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.YTMoney">OPEN FOLDER</a><a class="folder" href="https://github.com/7edhee/7e.Extensions/blob/main/extensions/7e.YTMoney/README.md">README ↗</a></div></article>
+      <article class="card launcher"><span class="number">01 / LAUNCHER</span><div class="icon">7e</div><h2>7e.Ext</h2><p class="tag">WEBSITE SHORTCUTS</p><p class="description">Open your favorite websites quickly from a clean Chrome extension popup. Edit the website list whenever you want.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.Ext">OPEN FOLDER</a><a class="button download-package is-disabled" data-package-folder="7e.Ext" href="#" aria-disabled="true">ZIP PENDING</a></div></article>
+      <article class="card ping"><span class="number">02 / MONITOR</span><div class="icon">↯</div><h2>7e.Ping</h2><p class="tag">LIVE NETWORK CHECK</p><p class="description">Check live latency and run an on-demand download speed test through a brutalist glassmorphism dashboard.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.Ping">OPEN FOLDER</a><a class="button download-package is-disabled" data-package-folder="7e.Ping" href="#" aria-disabled="true">ZIP PENDING</a></div></article>
+      <article class="card video"><span class="number">03 / BRUTALIST PAGE</span><div class="icon">▶</div><h2>7e.VideoTab</h2><p class="tag">CINEMATIC LANDING PAGE</p><p class="description">Turn every new tab into a video-powered search landing page with quick links and a rotating hero carousel.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.VideoTab">OPEN FOLDER</a><a class="button download-package is-disabled" data-package-folder="7e.VideoTab" href="#" aria-disabled="true">ZIP PENDING</a></div></article>
+      <article class="card money"><span class="number">04 / YT MONEY CALC</span><div class="icon">⛁</div><h2>7e.YTMoney</h2><p class="tag">YOUTUBE REVENUE CALCULATOR</p><p class="description">Turn every new tab into a video-powered search landing page with quick links and a rotating hero carousel.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.YTMoney">OPEN FOLDER</a><a class="button download-package is-disabled" data-package-folder="7e.YTMoney" href="#" aria-disabled="true">ZIP PENDING</a></div></article>
     </section>
 
-    <section class="file-browser" aria-labelledby="file-browser-title">
-      <div class="file-browser-head">
-        <div><p class="eyebrow">LIVE PACKAGE INDEX</p><h2 id="file-browser-title">ZIP packages in extensions/</h2></div>
-        <span id="file-status" class="file-status">SYNCING WITH GITHUB...</span>
+    <section class="star-cta" aria-labelledby="star-title">
+      <div class="star-copy">
+        <p class="eyebrow">SUPPORT THE TOOLBOX</p>
+        <h2 id="star-title">Like these tools?</h2>
+        <p>Recommend this collection by starring it on GitHub. It helps the project stay visible and makes it easier to keep the extension packages organized.</p>
+        <a class="star-link" href="https://github.com/7edhee/7e.Extensions" target="_blank" rel="noopener">★ STAR ON GITHUB</a>
       </div>
-      <div id="file-catalog" class="file-catalog" aria-live="polite"><div class="file-message">Loading the latest ZIP packages from GitHub...</div></div>
+      <div class="star-badge" aria-hidden="true"></div>
     </section>
     <section class="setup"><div><h3>INSTALL IN CHROME</h3><p>Choose an extension folder, open <code>chrome://extensions</code>, enable <strong>Developer mode</strong>, then choose <strong>Load unpacked</strong>.</p></div><div><h3>EDIT ANYTIME</h3><p>Each extension is delivered as editable source code. Change links, colors, text, and behavior directly inside its folder, then reload it from Chrome’s extensions page.</p></div></section>
     <footer class="footer"><span>7e / PERSONAL EXTENSION BOARD</span><span>BUILT FOR YOUR BROWSER</span></footer>
@@ -63,50 +61,41 @@
     (() => {
       const API_URL = "https://api.github.com/repos/7edhee/7e.Extensions/git/trees/main?recursive=1";
       const RAW_BASE = "https://github.com/7edhee/7e.Extensions/raw/refs/heads/main/";
-      const status = document.getElementById("file-status");
-      const catalog = document.getElementById("file-catalog");
+      const packageLinks = [...document.querySelectorAll("[data-package-folder]")];
+      const encodePath = (path) => path.split("/").map(encodeURIComponent).join("/");
 
-      const formatBytes = (bytes) => {
-        if (!Number.isFinite(bytes) || bytes === 0) return "size unavailable";
-        const units = ["B", "KB", "MB", "GB"];
-        const index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
-        return `${(bytes / (1024 ** index)).toFixed(index ? 1 : 0)} ${units[index]}`;
+      const setPending = (link) => {
+        link.textContent = "ZIP PENDING";
+        link.classList.add("is-disabled");
+        link.setAttribute("aria-disabled", "true");
+        link.addEventListener("click", (event) => event.preventDefault());
       };
 
-      const safeText = (value) => String(value).replace(/[&<>"']/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
-
-      const renderFiles = (tree) => {
-        const files = tree.filter((entry) => entry.type === "blob" && entry.path.startsWith("extensions/") && entry.path.toLowerCase().endsWith(".zip"));
-        const groups = new Map();
-        files.forEach((file) => {
-          const parts = file.path.split("/");
-          const group = parts.length > 2 ? parts[1] : "root files";
-          if (!groups.has(group)) groups.set(group, []);
-          groups.get(group).push(file);
-        });
-        if (!files.length) {
-          catalog.innerHTML = '<div class="file-message">No ZIP packages are currently published under extensions/. Upload a .zip file inside extensions/ to make it appear here.</div>';
-          return;
-        }
-        catalog.innerHTML = [...groups.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([group, entries]) => `
-          <section class="file-group" aria-label="${safeText(group)} files">
-            <h3>${safeText(group)}</h3>
-            ${entries.sort((a, b) => a.path.localeCompare(b.path)).map((file) => {
-              const relative = file.path.split("/").slice(2).join("/") || file.path;
-              const downloadUrl = RAW_BASE + file.path.split("/").map(encodeURIComponent).join("/") + "?download=1";
-              return `<div class="file-row"><div class="file-name" title="${safeText(relative)}">${safeText(relative)}<span class="file-size">${formatBytes(file.size)}</span></div><a class="file-download" href="${downloadUrl}" download target="_blank" rel="noopener">DOWNLOAD</a></div>`;
-            }).join("")}
-          </section>`).join("");
-        status.textContent = `${files.length} ZIP PACKAGES / LIVE FROM GITHUB`;
+      const setPackage = (link, file) => {
+        link.href = RAW_BASE + encodePath(file.path) + "?download=1";
+        link.download = file.path.split("/").pop();
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "DOWNLOAD ZIP";
+        link.classList.remove("is-disabled");
+        link.removeAttribute("aria-disabled");
+        link.title = `Download ${file.path.split("/").pop()}`;
       };
 
+      packageLinks.forEach(setPending);
       fetch(API_URL, { headers: { Accept: "application/vnd.github+json" } })
         .then((response) => { if (!response.ok) throw new Error(`GitHub API ${response.status}`); return response.json(); })
-        .then((data) => { if (data.truncated) status.textContent = "PARTIAL INDEX / TREE TOO LARGE"; renderFiles(data.tree || []); })
-        .catch((error) => {
-          status.textContent = "SYNC FAILED";
-          catalog.innerHTML = `<div class="file-message">The live ZIP package index is unavailable right now (${safeText(error.message)}). Use the GitHub repository to browse and download files.</div>`;
-        });
+        .then((data) => {
+          packageLinks.forEach((link) => {
+            const folder = link.dataset.packageFolder;
+            const prefix = `extensions/${folder}/`;
+            const packages = (data.tree || [])
+              .filter((entry) => entry.type === "blob" && entry.path.startsWith(prefix) && entry.path.toLowerCase().endsWith(".zip"))
+              .sort((a, b) => a.path.localeCompare(b.path, undefined, { numeric: true, sensitivity: "base" }));
+            if (packages.length) setPackage(link, packages[packages.length - 1]);
+          });
+        })
+        .catch(() => packageLinks.forEach(setPending));
     })();
   </script>
 
