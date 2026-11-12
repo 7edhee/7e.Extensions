@@ -42,12 +42,16 @@ function calculate() {
   resultType.textContent = contentType.value === 'shorts' ? 'SHORTS' : 'LONG-FORM';
   perThousand.textContent = formatMoney(rpm);
   perMillion.textContent = formatMoney(rpm * 1000);
+  const savedKey = contentType.value === 'shorts' ? 'shortsRpm' : 'rpm';
+  chrome.storage.local.set({ [savedKey]: rpm, currency: currency.value });
 }
 
 contentType.addEventListener('change', () => {
-  const next = defaultRpm[contentType.value];
-  syncRpm(next);
-  calculate();
+  const savedKey = contentType.value === 'shorts' ? 'shortsRpm' : 'rpm';
+  chrome.storage.local.get({ [savedKey]: defaultRpm[contentType.value] }, (settings) => {
+    syncRpm(settings[savedKey]);
+    calculate();
+  });
 });
 rpmInput.addEventListener('input', () => { syncRpm(rpmInput.value); calculate(); });
 rpmRange.addEventListener('input', () => { syncRpm(rpmRange.value); calculate(); });
@@ -55,5 +59,8 @@ currency.addEventListener('change', () => { syncRpm(rpmInput.value); calculate()
 viewsInput.addEventListener('input', calculate);
 document.getElementById('calculator').addEventListener('submit', (event) => { event.preventDefault(); calculate(); });
 
-syncRpm(rpmInput.value);
-calculate();
+chrome.storage.local.get({ rpm: defaultRpm.long, shortsRpm: defaultRpm.shorts, currency: 'USD' }, (settings) => {
+  currency.value = settings.currency;
+  syncRpm(settings.rpm);
+  calculate();
+});

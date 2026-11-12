@@ -20,3 +20,8 @@ A Chrome extension for live latency checks and on-demand download speed testing.
 ## Notes
 
 Results depend on the network, browser scheduling, VPN, and the test servers. This is a practical estimate, not a certified ISP measurement. The extension does not request browsing-history or website permissions.
+
+## Open-source notice
+
+This extension is open source and may be used, modified, and redistributed under
+the MIT License in `LICENSE`.

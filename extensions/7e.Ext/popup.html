@@ -1,40 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7e.Ext</title>
+  <title>7e Web Launcher</title>
   <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">7e.Ext</p>
+        <h1>My websites</h1>
+      </div>
+      <span class="badge" id="siteCount">0 sites</span>
+    </header>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <span class="logo-mark">7e</span>
-      <span class="logo-dot">.</span>
-      <span class="logo-ext">Ext</span>
-    </div>
-    <p class="tagline">Your web, one click away</p>
-  </header>
+    <section id="websiteList" class="website-list" aria-live="polite"></section>
 
-  <!-- Site list -->
-  <main>
-    <ul id="site-list" class="site-list">
-      <!-- Populated by popup.js -->
-    </ul>
+    <section id="emptyState" class="empty-state" hidden>
+      <div class="empty-icon">+</div>
+      <h2>No websites yet</h2>
+      <p>Open <strong>websites.js</strong> and add your links to the list.</p>
+      <code>{ name: "My site", url: "https://example.com" }</code>
+    </section>
 
-    <div id="empty-state" class="empty-state" hidden>
-      <p>No websites added yet.</p>
-      <p class="hint">Open <code>websites.js</code> and add your links.</p>
-    </div>
+    <footer class="footer">
+      <span>Edit websites.js to customize</span>
+      <span class="version">v1.0.0</span>
+    </footer>
   </main>
-
-  <!-- Footer -->
-  <footer>
-    <span>Edit <code>websites.js</code> to add your links</span>
-  </footer>
-
   <script src="websites.js"></script>
   <script src="popup.js"></script>
 </body>

@@ -27,3 +27,9 @@ A Chrome New Tab extension that uses the supplied video as a cinematic full-scre
 The supplied 1280×720 video was exported as an H.264 MP4 with no audio track because it is used as a background and Chrome new-tab pages should begin silently. It uses browser-friendly `yuv420p`, `faststart` metadata, and a quality-focused 1 Mbps encode to reduce file size while keeping the original resolution and smooth 30 fps playback.
 
 To customize the services, edit the `QUICK_LINKS` array near the top of `newtab.js`.
+
+## Open-source notice
+
+This extension source is open source and may be used, modified, and redistributed
+under the MIT License in `LICENSE`. Check the rights for any separately supplied
+media assets before redistributing them.

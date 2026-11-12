@@ -7,5 +7,18 @@
     "default_title": "7e.YTMoney",
     "default_popup": "popup.html"
   },
-  "permissions": []
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
 }

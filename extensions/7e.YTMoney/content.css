@@ -1,0 +1,19 @@
+#seven-e-ytmoney-panel { position: fixed; z-index: 2147483647; top: 84px; right: 20px; width: 300px; padding: 15px; border: 1px solid rgba(216,255,54,.7); border-left: 4px solid #d8ff36; color: #f1f0ea; background: rgba(10,12,14,.86); box-shadow: 7px 7px 0 rgba(0,0,0,.35); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); font-family: Arial, sans-serif; user-select: none; }
+#seven-e-ytmoney-panel * { box-sizing: border-box; }
+#seven-e-ytmoney-panel .seven-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+#seven-e-ytmoney-panel .seven-brand { color:#c5c9c1; font:10px monospace; letter-spacing:.1em; }
+#seven-e-ytmoney-panel .seven-brand b { margin-right:4px; padding:3px 5px; color:#0b0d0f; background:#d8ff36; font:bold 12px Arial; }
+#seven-e-ytmoney-panel .seven-close { padding:0 4px; border:0; color:#9ca19c; background:transparent; cursor:pointer; font-size:20px; line-height:15px; }
+#seven-e-ytmoney-panel .seven-title { overflow:hidden; margin-bottom:4px; color:#fff; font-size:15px; font-weight:700; line-height:1.25; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+#seven-e-ytmoney-panel .seven-channel { overflow:hidden; margin-bottom:14px; color:#a3a8a1; font:10px monospace; text-overflow:ellipsis; white-space:nowrap; }
+#seven-e-ytmoney-panel .seven-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:9px; }
+#seven-e-ytmoney-panel .seven-stats div { min-width:0; padding:8px 7px; background:rgba(255,255,255,.08); }
+#seven-e-ytmoney-panel small { display:block; color:#909690; font:8px monospace; letter-spacing:.08em; }
+#seven-e-ytmoney-panel .seven-stats strong { display:block; overflow:hidden; margin-top:5px; color:#f1f0ea; font:12px monospace; text-overflow:ellipsis; white-space:nowrap; }
+#seven-e-ytmoney-panel .seven-estimate { padding:12px 11px; border:1px solid #d8ff36; background:rgba(216,255,54,.08); }
+#seven-e-ytmoney-panel .seven-money { display:block; margin:4px 0 3px; color:#d8ff36; font-size:25px; letter-spacing:-.06em; }
+#seven-e-ytmoney-panel .seven-formula { display:block; overflow:hidden; color:#c1c6bd; font:9px monospace; text-overflow:ellipsis; white-space:nowrap; }
+#seven-e-ytmoney-panel .seven-note { margin:10px 0; color:#777d77; font:8px monospace; }
+#seven-e-ytmoney-panel .seven-refresh { width:100%; padding:8px; border:1px solid rgba(241,240,234,.35); color:#f1f0ea; background:transparent; cursor:pointer; font:9px monospace; letter-spacing:.06em; }
+#seven-e-ytmoney-panel .seven-refresh:hover { color:#0b0d0f; background:#d8ff36; }
+@media (max-width: 600px) { #seven-e-ytmoney-panel { top:70px; right:10px; left:10px; width:auto; } }
