@@ -60,6 +60,10 @@ Chrome extensions in this repository are loaded directly from their source direc
 
 Each extension is intentionally self-contained under `extensions/`. Keep extension assets and metadata inside the corresponding directory so that it remains independently loadable.
 
+## Live file catalog
+
+The root [`index.html`](index.html) loads the current `extensions/` tree from GitHub and renders every published file with a download button. Upload a file anywhere inside an extension directory and it will appear in the live catalog after GitHub updates the `main` branch; no manual edit to `index.html` is required.
+
 ## Privacy and permissions
 
 The three manifests currently declare no Chrome permissions. `7e.Ping` performs network requests for its latency and download-speed checks, as described in its [extension README](extensions/7e.Ping/README.md). `7e.VideoTab` includes external quick-link destinations and a Google search form. Review each extension's source and manifest before installing modified copies.
