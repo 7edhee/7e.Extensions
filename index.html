@@ -28,6 +28,18 @@
     @keyframes star-orbit { to { transform:rotate(360deg); } }
     @media (max-width:600px) { .star-cta { align-items:flex-start; flex-direction:column; }.star-badge { position:absolute; top:18px; right:18px; width:62px; height:62px; }.star-badge::before { font-size:28px; } }
     @media (prefers-reduced-motion:reduce) { .star-badge, .star-badge::before, .star-cta::after { animation:none; } }
+    .download-stats { margin-top:16px; padding:21px; border:1px solid rgba(216,255,54,.38); background:rgba(216,255,54,.055); box-shadow:8px 8px 0 rgba(0,0,0,.2); }
+    .download-stats-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:16px; }
+    .download-stats h2 { margin:0 0 7px; color:var(--acid); font:14px monospace; letter-spacing:.12em; }
+    .download-stats p { max-width:650px; margin:0; color:#aeb1ad; font-size:12px; line-height:1.5; }
+    .stats-refresh { padding:9px 11px; border:1px solid var(--acid); color:var(--acid); background:transparent; cursor:pointer; font:10px monospace; white-space:nowrap; }
+    .stats-refresh:hover { color:#0b0d0f; background:var(--acid); }
+    .stats-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+    .stat { min-width:0; padding:11px; border:1px solid var(--line); background:rgba(0,0,0,.22); }
+    .stat small { display:block; overflow:hidden; color:#858b85; font:9px monospace; letter-spacing:.08em; text-overflow:ellipsis; white-space:nowrap; }
+    .stat strong { display:block; margin-top:5px; color:var(--paper); font:700 20px monospace; }
+    .stats-status { margin-top:12px; color:#777d77; font:10px monospace; }
+    @media (max-width:800px) { .stats-grid { grid-template-columns:repeat(2,1fr); }.download-stats-head { flex-direction:column; }.stats-refresh { align-self:flex-start; } }
     .setup { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:70px; padding-top:21px; border-top:1px solid var(--line); }.setup h3 { margin:0 0 11px; color:var(--acid); font:11px monospace; letter-spacing:.15em; }.setup p { margin:0; color:#aeb1ad; font-size:13px; line-height:1.55; }.setup code { padding:3px 6px; color:var(--paper); background:rgba(255,255,255,.1); font-family:monospace; }.footer { display:flex; justify-content:space-between; margin-top:50px; color:#707572; font:10px monospace; letter-spacing:.07em; }
     @media (max-width:800px) { .extension-grid { grid-template-columns:1fr; }.card { min-height:250px; }.setup { grid-template-columns:1fr; }.topbar { margin-bottom:55px; } } @media (max-width:480px) { .page { width:min(100% - 30px,1120px); padding-top:22px; }.edition { display:none; } }
 
@@ -42,6 +54,12 @@
       <article class="card ping"><span class="number">02 / MONITOR</span><div class="icon">↯</div><h2>7e.Ping</h2><p class="tag">LIVE NETWORK CHECK</p><p class="description">Check live latency and run an on-demand download speed test through a brutalist glassmorphism dashboard.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.Ping">OPEN FOLDER</a><a class="button download-package is-disabled" data-package-folder="7e.Ping" href="#" aria-disabled="true">ZIP PENDING</a><a class="folder" href="https://github.com/7edhee/7e.Extensions/blob/main/extensions/7e.Ping/README.md" target="_blank" rel="noopener">README ↗</a></div></article>
       <article class="card video"><span class="number">03 / BRUTALIST PAGE</span><div class="icon">▶</div><h2>7e.VideoTab</h2><p class="tag">CINEMATIC LANDING PAGE</p><p class="description">Turn every new tab into a video-powered search landing page with quick links and a rotating hero carousel.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.VideoTab">OPEN FOLDER</a><a class="button download-package is-disabled" data-package-folder="7e.VideoTab" href="#" aria-disabled="true">ZIP PENDING</a><a class="folder" href="https://github.com/7edhee/7e.Extensions/blob/main/extensions/7e.VideoTab/README.md" target="_blank" rel="noopener">README ↗</a></div></article>
       <article class="card money"><span class="number">04 / YT MONEY CALC</span><div class="icon">⛁</div><h2>7e.YTMoney</h2><p class="tag">YOUTUBE REVENUE CALCULATOR</p><p class="description">Turn every new tab into a video-powered search landing page with quick links and a rotating hero carousel.</p><div class="card-footer"><a class="button" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.YTMoney">OPEN FOLDER</a><a class="button download-package is-disabled" data-package-folder="7e.YTMoney" href="#" aria-disabled="true">ZIP PENDING</a><a class="folder" href="https://github.com/7edhee/7e.Extensions/tree/main/extensions/7e.YTMoney" target="_blank" rel="noopener">README ↗</a></div></article>
+    </section>
+
+    <section class="download-stats" aria-labelledby="download-stats-title">
+      <div class="download-stats-head"><div><h2 id="download-stats-title">LIVE DOWNLOAD INTEL</h2><p>Automated counts from GitHub release assets. Counts update whenever this page is opened or refreshed.</p></div><button id="refreshStats" class="stats-refresh" type="button">REFRESH STATS</button></div>
+      <div class="stats-grid"><div class="stat"><small>TOTAL RELEASE DOWNLOADS</small><strong id="totalDownloads">—</strong></div><div class="stat"><small>7e.Ext</small><strong id="statsLauncher">—</strong></div><div class="stat"><small>7e.Ping</small><strong id="statsPing">—</strong></div><div class="stat"><small>7e.VideoTab</small><strong id="statsVideo">—</strong></div><div class="stat"><small>7e.YTMoney</small><strong id="statsMoney">—</strong></div></div>
+      <div id="statsStatus" class="stats-status" role="status">LOADING GITHUB RELEASE COUNTS…</div>
     </section>
 
     <section class="star-cta" aria-labelledby="star-title">
@@ -60,8 +78,10 @@
   <script>
     (() => {
       const API_URL = "https://api.github.com/repos/7edhee/7e.Extensions/git/trees/main?recursive=1";
+      const RELEASES_URL = "https://api.github.com/repos/7edhee/7e.Extensions/releases?per_page=100";
       const RAW_BASE = "https://github.com/7edhee/7e.Extensions/raw/refs/heads/main/";
       const packageLinks = [...document.querySelectorAll("[data-package-folder]")];
+      const statTargets = { "7e.Ext": "statsLauncher", "7e.Ping": "statsPing", "7e.VideoTab": "statsVideo", "7e.YTMoney": "statsMoney" };
       const encodePath = (path) => path.split("/").map(encodeURIComponent).join("/");
       const heroTitle = document.querySelector(".hero h1");
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -98,7 +118,31 @@
         link.title = `Download ${file.path.split("/").pop()}`;
       };
 
+      const setStats = (id, value) => { const node = document.getElementById(id); if (node) node.textContent = Number(value || 0).toLocaleString(); };
+      const loadDownloadStats = () => {
+        const status = document.getElementById("statsStatus");
+        if (status) status.textContent = "LOADING GITHUB RELEASE COUNTS…";
+        fetch(RELEASES_URL, { headers: { Accept: "application/vnd.github+json" } })
+          .then((response) => { if (!response.ok) throw new Error(`GitHub API ${response.status}`); return response.json(); })
+          .then((releases) => {
+            const counts = Object.fromEntries(Object.keys(statTargets).map((name) => [name, 0]));
+            let total = 0;
+            releases.forEach((release) => release.assets.forEach((asset) => {
+              const match = Object.keys(statTargets).find((name) => asset.name.toLowerCase().startsWith(name.toLowerCase()));
+              const downloads = Number(asset.download_count || 0);
+              total += downloads;
+              if (match) counts[match] += downloads;
+            }));
+            setStats("totalDownloads", total);
+            Object.entries(counts).forEach(([name, count]) => setStats(statTargets[name], count));
+            if (status) status.textContent = releases.length ? `UPDATED ${new Date().toLocaleTimeString()} · RELEASE ASSET COUNTS ONLY` : "NO GITHUB RELEASES YET · PUBLISH A RELEASE TO START COUNTING DOWNLOADS";
+          })
+          .catch(() => { if (status) status.textContent = "DOWNLOAD STATS UNAVAILABLE · TRY REFRESHING LATER"; });
+      };
+
       packageLinks.forEach(setPending);
+      document.getElementById("refreshStats")?.addEventListener("click", loadDownloadStats);
+      loadDownloadStats();
       fetch(API_URL, { headers: { Accept: "application/vnd.github+json" } })
         .then((response) => { if (!response.ok) throw new Error(`GitHub API ${response.status}`); return response.json(); })
         .then((data) => {

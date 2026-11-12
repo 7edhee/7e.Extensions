@@ -64,6 +64,12 @@ Each extension is intentionally self-contained under `extensions/`. Keep extensi
 
 The root [`index.html`](index.html) checks the current `extensions/` tree from GitHub and adds a **Download ZIP** button beside each extension card when a package is available. Upload another `.zip` package inside an extension directory and the matching card will recognize it automatically after GitHub updates the `main` branch.
 
+The website also includes a live **Download Intel** panel. It reads GitHub's public
+release API and totals `download_count` for release assets, including per-extension
+counts. Branch-file downloads are not exposed by GitHub's public API, so the panel
+shows a clear no-release state until ZIPs are published as GitHub release assets.
+Use the panel's **Refresh Stats** button to request the latest counts.
+
 ## Privacy and permissions
 
 The three manifests currently declare no Chrome permissions. `7e.Ping` performs network requests for its latency and download-speed checks, as described in its [extension README](extensions/7e.Ping/README.md). `7e.VideoTab` includes external quick-link destinations and a Google search form. Review each extension's source and manifest before installing modified copies.
